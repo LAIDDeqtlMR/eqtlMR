@@ -9,6 +9,8 @@ resUnc <- read.delim("RES_UNC")
 head(resUnc)
 resCor <- read.delim("RES_COR")
 head(resCor)
+dat <- read.delim("DAT")
+head(dat)
 
 #create function
 pick<-function(gene,res,dat){
