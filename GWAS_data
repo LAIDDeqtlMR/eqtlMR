@@ -1,0 +1,12 @@
+
+
+BiocManager::install(c("VariantAnnotation", "remote"))
+remotes::install_github(c("MRCIEU/gwasvcf","MRCIEU/gwasglue", "MRCIEU/ieugwasr"))
+library(VariantAnnotation)
+library(gwasvcf)
+library(gwasglue)
+library(ieugwasr)
+library(remote)
+
+curl -O http://fileserve.mrcieu.ac.uk/ld/1kg.v3.tgz
+
