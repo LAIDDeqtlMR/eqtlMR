@@ -23,17 +23,4 @@ library(bcftools)
 ./bcftools
 
 
-#######################################################
-###########Split exposure into chunks##################
-#######################################################
-
-mkdir SPLIT
-#To sort by gene name alphabetically,
-cut -f 9 ../eqtlgen_exposure_dat_snps_5kb_window.txt | tail -n +2 | sort -u | split -l 50 --numeric-suffixes=100 -a 3 /dev/stdin exposures.
-
-#To sort by gene chromosome and coordinate,
-tail -n +2 ../eqtlgen_exposure_dat_snps_5kb_window.txt | sort -k 10 -n -k 11 -n | cut -f 9 |uniq | split -l 50 --numeric-suffixes=100 -a 3 /dev/stdin exposures.
-
-
-
 
