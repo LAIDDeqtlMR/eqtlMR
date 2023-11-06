@@ -1,3 +1,8 @@
+##############################################################################
+#####     Let's combine the 50 pieces that were divided into one       #######
+##############################################################################
+
+
 #Combining whole uncorrelated results & sorting
 cat results0.2_uncorrel_1* | grep -v '^exposure' | sort -t$'\t' -k 7 -g | less
 
