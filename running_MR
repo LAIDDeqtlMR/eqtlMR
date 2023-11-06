@@ -2,8 +2,7 @@
 ###### Run Mendelian Randomization !! ######
 ############################################
 
-#create R file 
-./liberalRun.R  100  151  2> liberalRun.log
+#Let's name the code below 'liberalRun.R'
 
 ############################################
 ##############liberalRun.R##################
@@ -151,3 +150,6 @@ for( SPLIT in START:END ) {
   }
   
 }
+
+#running MR
+./liberalRun.R  100  151  2> liberalRun.log
