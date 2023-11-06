@@ -111,7 +111,16 @@ Harmonise_LD_dat <- function(x, ld) {
   return( list( x=x, ld=ld ) )
 }
 
+############################################
+###### Run Mendelian Randomization !! ######
+############################################
 
+#create R file 
+./liberalRun.R  100  151  2> liberalRun.log
+
+############################################
+##############liberalRun.R##################
+############################################
 #!/usr/bin/env Rscript
 
 suppressPackageStartupMessages( {
@@ -256,6 +265,8 @@ for( SPLIT in START:END ) {
   
 }
 
+
+
 cat results0.2_uncorrel_1* | grep -v '^exposure' | sort -t$'\t' -k 7 -g | less
 cat results0.2_correl_1* | grep -v '^exposure' | sort -t$'\t' -k 7 -g | less
 
@@ -268,12 +279,10 @@ for I in {101..151}; do echo $I; cat results0.2_uncorrel_${I}.txt | tail -n +2 >
 ##################################
 #####      Plotting MR        ####
 ##################################
-
-library(TwoSampleMR)
 library(ggplot2)
 library(dplyr)
 
-#input file
+#input file loading
 resUnc <- read.delim("RES_UNC")
 head(resUnc)
 resCor <- read.delim("RES_COR")
