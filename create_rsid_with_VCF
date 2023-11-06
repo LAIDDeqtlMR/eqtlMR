@@ -2,7 +2,12 @@
 ##########create index file using VCF####################
 #########################################################
 
-#########################################################################
+#Let's name the code below 'vcfRSindex.bash'
+
+#####################################################
+##################vcfRSindex.bash####################
+#####################################################
+
 #!/bin/bash
 
 VCF="ieu-b-7.vcf.gz"
@@ -31,9 +36,8 @@ EOJ
 
 echo "${RS} is no longer necessary, removed"
 rm ${RS}
-################################################################################################
-#Naming those code as 
-vcfRSindex.bash
+#######################################################################################
+
 
 #The following command is executed to change the file's status to executable.
 chmod +x vcfRSindex.bash
