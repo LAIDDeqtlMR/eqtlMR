@@ -7,7 +7,7 @@ Among the Mendelian randomization (MR) methods, Two sample MR is used to conduct
 
 ## Data
 
-Two sample MR는 데이터 셋으로 exposure와 outcome 선정이 필요하다. 각각을 질병으로 타겟을 선정할 수 있으나, 본 프로젝트에서는 exposure는 Eqtl 데이터셋을, outcome으로는 관찰하고자 하는 질병의 GWAS 데이터 셋을 사용한다. 
+In order to use two sample MR, appropriate exposure and outcome selection is required. In this project, the Eqtl dataset is used as exposure, and the [GWAS dataset](https://gwas.mrcieu.ac.uk/) of the disease to be observed is used as outcome.
 
 
 * exposure
