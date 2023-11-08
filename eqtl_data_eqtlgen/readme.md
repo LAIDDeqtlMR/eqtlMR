@@ -17,9 +17,9 @@ https://pubmed.ncbi.nlm.nih.gov/28356508/
 
 Organization of files and folders
 
-TwoSample project
-   eqtl_data_eqtlgen
-      SPLIT
+TwoSample project<br/>
+   eqtl_data_eqtlgen<br/>
+      SPLIT<br/>
          *exposure.100 - 151 3@
       2018-07-18_SNP_AF_for_AlleleB_combined_allele_counts_and_MAF_pos_added.txt.gz 2@
       2019-12-11-cis-eQTLsFDR0.05-ProbeLevel-CohortInfoRemoved-BonferroniAdded.txt.gz 2@
