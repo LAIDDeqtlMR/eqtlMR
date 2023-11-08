@@ -43,4 +43,4 @@ rm ${RS}
 #chmod +x vcfRSindex.bash
 
 #Running code
-./vcfRSindex.bash
+#./vcfRSindex.bash
