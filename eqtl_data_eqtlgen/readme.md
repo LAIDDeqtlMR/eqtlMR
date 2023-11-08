@@ -20,13 +20,13 @@ Organization of files and folders
 TwoSample project
    eqtl_data_eqtlgen
       SPLIT
-         *exposure.100~151 3@
+         *exposure.100 - 151 3@
       2018-07-18_SNP_AF_for_AlleleB_combined_allele_counts_and_MAF_pos_added.txt.gz 2@
       2019-12-11-cis-eQTLsFDR0.05-ProbeLevel-CohortInfoRemoved-BonferroniAdded.txt.gz 2@
       *eqtlgen_exposure_dat_snps_5kb_window.txt(=full.txt) 2@ 3@
    Crohn_disease
       *SPLIT
-         *exposure.100~151 5&6@
+         *exposure.100 - 151 5&6@
          combine_results.R 7@
          *DAT 7@
          *RES_COR 7@
