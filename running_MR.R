@@ -18,7 +18,7 @@ suppressPackageStartupMessages( {
   library(dplyr)
   library(TwoSampleMR)
 } )
-source("/workspace/BY/lupus/dat2MRInput.R")
+source("/root/TwosampleMR_project/eqtlMR/TwosampleMR_to_MR.R")
 
 set_bcftools("/usr/bin/bcftools")
 
