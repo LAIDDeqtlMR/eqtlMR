@@ -17,7 +17,7 @@ https://pubmed.ncbi.nlm.nih.gov/28356508/
 
 Organization of files and folders
 
-TwoSample project
+TwoSample project\n
 ---{eqtl_data_eqtlgen}
    ---{SPLIT}
      *---exposure.100~151 3@
