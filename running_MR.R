@@ -153,4 +153,4 @@ for( SPLIT in START:END ) {
 }
 
 #running MR
-./liberalRun.R  100  151  2> liberalRun.log
+#./liberalRun.R  100  151  2> liberalRun.log
