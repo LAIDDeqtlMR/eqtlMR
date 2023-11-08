@@ -48,4 +48,4 @@ TwoSample project<br/>
 　　druggalbe_genome_new.txt<br/>
 　　install_gwasvcf.R 1@<br/>
 　　Split_exposure_into_chunks.R (files are needed : eqtlgen_exposure_dat_snps_5kb_window.txt(=full.txt)) 3@
-　　data_prep_eqtlgen.R (files are needed : 2018~txt.gz, 2019~txt.gz, druggable_genome~.txt) 2@
+　　data_prep_eqtlgen.R (files are needed : 2018···.txt.gz, 2019···.txt.gz, druggable_genome···.txt) 2@
