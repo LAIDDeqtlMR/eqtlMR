@@ -20,7 +20,7 @@ suppressPackageStartupMessages( {
 } )
 source("/workspace/BY/lupus/dat2MRInput.R")
 
-set_bcftools("/usr/local/bin/bcftools")
+set_bcftools("/usr/bin/bcftools")
 
 eQTLfolder <- '../eqtl_data_eqtlgen'
 vcfFile <- 'ebi-a-GCST003156.vcf.gz'
