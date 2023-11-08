@@ -111,7 +111,7 @@ full$se = 1 / sqrt(2 * as.numeric(full$eaf) *
 # add gene names
 full_with_names <- left_join(full, genes_id[, c("exposure", "gene.exposure")], by = c("new_gene_id" = "exposure"))
 
-write.table(full, "eqtl_data_eqtlgen/eqtlgen_exposure_dat_snps_5kb_window.txt", sep = "\t", row.names = F, quote = F)
+write.table(full, "eqtlgen_exposure_dat_snps_5kb_window.txt", sep = "\t", row.names = F, quote = F)
 
 
 print("mission complete")
