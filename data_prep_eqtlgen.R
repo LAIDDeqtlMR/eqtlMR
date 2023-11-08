@@ -10,13 +10,13 @@ library("readr")
 
 
 # load eqtlgen data
-eqtlgen <- read_tsv(gzfile("eqtl_data_eqtlgen/2019-12-11-cis-eQTLsFDR0.05-ProbeLevel-CohortInfoRemoved-BonferroniAdded.txt.gz"), col_types=cols(.default="c"))
+eqtlgen <- read_tsv(gzfile("2019-12-11-cis-eQTLsFDR0.05-ProbeLevel-CohortInfoRemoved-BonferroniAdded.txt.gz"), col_types=cols(.default="c"))
 eqtlgen$new_gene_id <- eqtlgen$Gene
 
 
 
 # alt allele == effect allele
-alleles <- read_tsv(gzfile("eqtl_data_eqtlgen/2018-07-18_SNP_AF_for_AlleleB_combined_allele_counts_and_MAF_pos_added.txt.gz"), col_types=cols(.default="c"))
+alleles <- read_tsv(gzfile("2018-07-18_SNP_AF_for_AlleleB_combined_allele_counts_and_MAF_pos_added.txt.gz"), col_types=cols(.default="c"))
 
 
 
@@ -111,7 +111,7 @@ full$se = 1 / sqrt(2 * as.numeric(full$eaf) *
 # add gene names
 full_with_names <- left_join(full, genes_id[, c("exposure", "gene.exposure")], by = c("new_gene_id" = "exposure"))
 
-write.table(full, "eqtl_data_eqtlgen/eqtlgen_exposure_dat_snps_5kb_window.txt", sep = "\t", row.names = F, quote = F)
+write.table(full, "eqtlgen_exposure_dat_snps_5kb_window.txt", sep = "\t", row.names = F, quote = F)
 
 
 print("mission complete")
