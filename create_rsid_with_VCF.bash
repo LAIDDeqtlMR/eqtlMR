@@ -40,7 +40,7 @@ rm ${RS}
 
 
 #The following command is executed to change the file's status to executable.
-chmod +x vcfRSindex.bash
+#chmod +x vcfRSindex.bash
 
 #Running code
 ./vcfRSindex.bash
