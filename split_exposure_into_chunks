@@ -2,7 +2,9 @@
 ###########   Split exposure into chunks   ############
 #######################################################
 
+#make SPLIT file
 mkdir SPLIT
+
 #To sort by gene name alphabetically,
 cut -f 9 ../eqtlgen_exposure_dat_snps_5kb_window.txt | tail -n +2 | sort -u | split -l 50 --numeric-suffixes=100 -a 3 /dev/stdin exposures.
 
