@@ -37,7 +37,7 @@ dat2MRInput <- function(dat, get_correlations=FALSE, pop="EUR", bfile=NULL, plin
       snpnames <- do.call(rbind, strsplit(rownames(ld), split="_"))[,1]
       MD <- match( x$SNP, snpnames )
       ld <- ld[ MD, MD ]
-      out <- Harmonize_LD_dat(x, ld)
+      out <- Harmonise_LD_dat(x, ld)
       if(is.null(out))
       {
         return(NULL)
