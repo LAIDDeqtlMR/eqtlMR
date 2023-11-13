@@ -14,11 +14,11 @@ head(resCor)
 dat <- read.delim("DAT")
 head(dat)
 
-#select exposure from p-value (0.005)
-resUnc_pval <- resUnc %>% filter(p < 0.005 ) 
+#select exposure from p-value (0.05)
+resUnc_pval <- resUnc %>% filter(p < 0.05 ) 
 resUnc_pval
 table(resUnc_pval$exposure)
-resCor_pval <- resCor %>% filter(p < 0.005 ) 
+resCor_pval <- resCor %>% filter(p < 0.05 ) 
 resCor_pval
 table(resCor_pval$exposure)
 
