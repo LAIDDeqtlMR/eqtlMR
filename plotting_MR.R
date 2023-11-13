@@ -14,6 +14,14 @@ head(resCor)
 dat <- read.delim("DAT")
 head(dat)
 
+#select exposure from p-value
+resUnc_pval <- resUnc %>% filter(p < 0.005 ) 
+resUnc_pval
+table(resUnc_pval$exposure)
+resCor_pval <- resCor %>% filter(p < 0.005 ) 
+resCor_pval
+table(resCor_pval$exposure)
+
 #create function
 pick<-function(gene,res,dat){
 res1<-subset(res,exposure==gene)
