@@ -2,6 +2,10 @@
 #####      Plotting MR        ####
 ##################################
 
+getwd()
+# change the path to SPLIT directory
+setwd("/home/test/TwosampleMR_project/eqtlMR/Crohn_disease/SPLIT")
+
 library(TwoSampleMR)
 library(ggplot2)
 library(dplyr)
