@@ -1,3 +1,5 @@
+#!/usr/bin/env Rscript
+
 ############################################
 ###### Run Mendelian Randomization !! ######
 ############################################
@@ -8,7 +10,14 @@
 ############################################
 #########    liberalRun.R       ############
 ############################################
-#!/usr/bin/env Rscript
+
+# Upload gene list to be excluded
+if( file.exists("EXPOSURES.exclude") ) {
+	EXPOSURES.exclude <- read.delim("EXPOSURES.exclude", head=F)[,1]
+	print( paste( length(EXPOSURES.exclude), "genes to be excluded in the analysis" ) )
+} else {
+	EXPOSURES.exclude <- NULL
+}
 
 suppressPackageStartupMessages( {
   library(ieugwasr)
@@ -18,12 +27,14 @@ suppressPackageStartupMessages( {
   library(dplyr)
   library(TwoSampleMR)
 } )
-source("/root/TwosampleMR_project/eqtlMR/TwosampleMR_to_MR.R")
+source("~/TwoSampleMR_project/eqtlMR/TwoSampleMR_to_MR.R")
 
-set_bcftools("/usr/bin/bcftools")
+# Use bundled binaries in genetics.binaRies
+set_bcftools()
+set_plink()
 
 eQTLfolder <- '../eqtl_data_eqtlgen'
-vcfFile <- 'ebi-a-GCST003156.vcf.gz'
+vcfFile <- 'ieu-b-7.vcf.gz'
 vcfRSidx <- sub('.gz', '.rsidx', vcfFile)
 
 ( args <- commandArgs(trailingOnly=TRUE) )
@@ -45,6 +56,9 @@ for( SPLIT in START:END ) {
   print( paste( 'Processing', SPLIT ) )
   
   EXPOSURES <- read.delim( paste0( eQTLfolder, '/SPLIT/exposures.', SPLIT ), head=F)[,1]
+  if( ! is.null(EXPOSURES.exclude) ) {
+	  EXPOSURES <- setdiff( EXPOSURES, EXPOSURES.exclude )
+  }
   print( head(EXPOSURES) )
   load( paste( eQTLfolder, 'exposures.RData', sep='/') )
   
@@ -60,7 +74,7 @@ for( SPLIT in START:END ) {
   dat <- subset( dat0, dat0$mr_keep == TRUE )
   print( head(dat) )
   print( colnames(dat) )
-  dat0.2 <- ld_clump_local( data.frame( rsid=dat$SNP, pval=dat$pval.exposure, id=dat$id.exposure ), clump_kb=10000, clump_p=0.99, clump_r2 = 0.2, bfile='../TGZ/EUR', plink_bin='/usr/local/lib/R/site-library/genetics.binaRies/bin/plink' )
+  dat0.2 <- ld_clump_local( data.frame( rsid=dat$SNP, pval=dat$pval.exposure, id=dat$id.exposure ), clump_kb=10000, clump_p=0.99, clump_r2 = 0.2, bfile='../TGZ/EUR', plink_bin=getOption("tools_plink") )
   dat0.2 <- subset( dat, dat$SNP %in% dat0.2$rsid )
   print('clumped')
   dat0.2$r.outcome <- get_r_from_lor(dat0.2$beta.outcome, af=dat0.2$eaf.outcome, ncase=33674, ncontrol=449056, prevalence=0.01)
@@ -108,7 +122,7 @@ for( SPLIT in START:END ) {
     for( i in 1:length(unique_exposures) ) {
       uei <- unique_exposures[i]
       dat_steiger_keep1 <- subset( dat_steiger_keep, exposure == uei )
-      dat2 <- dat2MRInput( dat_steiger_keep1, get_correlation=TRUE, bfile='../TGZ/EUR', plink_bin='/usr/local/lib/R/site-library/genetics.binaRies/bin/plink' )
+      dat2 <- dat2MRInput( dat_steiger_keep1, get_correlation=TRUE, bfile='../TGZ/EUR', plink_bin=getOption("tools_plink") )
       save(dat2, file='MRInput.RData')
       if( is.null(dat2[[1]]) ) stop()
       ivw <- MendelianRandomization::mr_ivw( dat2[[1]], correl=TRUE )
