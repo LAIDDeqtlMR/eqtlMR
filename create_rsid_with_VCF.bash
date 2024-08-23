@@ -11,11 +11,18 @@
 
 #!/bin/bash
 
-VCF="ieu-b-7.vcf.gz"
+VCF=ieu-b-7.vcf.gz
 echo "Creating rsid_to_coord index for the VCF file: ${VCF}"
 
 RS=`echo ${VCF} | sed -e "s/.gz/.rs.txt/"`
-zcat ${VCF} | grep -v '^#' | awk '$3 ~ /^rs/ {print substr($3,3), $1, $2}' | uniq > ${RS}
+
+#########Comment out and use according to the OS you are using (Linux or MacOS).#########
+# For Linux
+#zcat ${VCF} | grep -v '^#' | awk '$3 ~ /^rs/ {print substr($3,3), $1, $2}' | uniq > ${RS}
+# For MacOS
+gzcat ${VCF} | grep -v '^#' | awk '$3 ~ /^rs/ {print substr($3,3), $1, $2}' | uniq > ${RS}
+#########################################################################################
+
 echo "Number of lines: `wc -l ${RS}`"
 
 RSIDX=`echo ${RS} | sed -e "s/.txt/idx/"`
